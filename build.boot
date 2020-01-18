@@ -1,10 +1,10 @@
 (def project 'gen-crawler-clj)
-(def version "1.0.0-ALPHA")
+(def version "1.1.0-ALPHA")
 
 (set-env! :resource-paths #{"resources" "src"}
           :source-paths   #{"test"}
           :dependencies   '[[org.clojure/clojure "RELEASE"]
-                            [br.com.gencrawler.crawler/gen-crawler "1.2.1-BETA"]
+                            [br.com.gencrawler.crawler/gen-crawler "1.2.3-BETA"]
                             [adzerk/boot-test "RELEASE" :scope "test"]
                             [midje "1.9.9"]])
 
