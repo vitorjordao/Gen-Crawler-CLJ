@@ -1,5 +1,5 @@
 (def project 'gen-crawler-clj)
-(def version "1.1.0-ALPHA")
+(def version "1.2.0-ALPHA")
 
 (set-env! :resource-paths #{"resources" "src"}
           :source-paths   #{"test"}
