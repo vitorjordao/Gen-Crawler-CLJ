@@ -4,8 +4,11 @@
 (defn run-item
   "
   Run the collector item without AJAX
-  ´item´ is a map 
-  => {:url \"...\", :find \"...\", :match \"...\"}
+  ´item´
+  => [{:url \"...\", :find \"...\", :match \"...\"}]
+  ´url´ => string
+  ´find´ => string
+  ´match´ => string => regex
   "
   [{url :url, find :find, match :match}]
   (let [obj (br.com.gencrawler.crawler.core.SimpleCollector. url find match)]
@@ -18,8 +21,11 @@
 (defn run-list 
   "
   Run the collector item without AJAX
-  ´item´ is a map 
+  ´item´
   => {:url \"...\", :find \"...\", :match \"...\"}
+  ´url´ => string
+  ´find´ => string
+  ´match´ => string => regex
   "
   [& args]
   (map #(run-item %) args))

@@ -6,13 +6,13 @@
        (let [crawled {:url "https://www.casa.center/prato-de-sobremesa-com-estampa-de-flores-e-borda-bambu-magnolia/p"
                       :find "strong[class^=\"skuPrice\"]"
                       :match "^.*?().*$"}]
-         (fact "Run an item"
+         (fact "Get a prices on the site"
                (->
                 (run-item crawled)
                 (count)
                 (> 0)) => true)
 
-         (fact "Run a lot of items"
+         (fact "Get a list prices on the site"
                (->
                 (run-list crawled crawled)
                 (count)
