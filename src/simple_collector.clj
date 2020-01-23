@@ -5,7 +5,7 @@
   "
   Run the collector item without AJAX
   ´item´
-  => [{:url \"...\", :find \"...\", :match \"...\"}]
+  => {:url \"...\", :find \"...\", :match \"...\"}
   ´url´ => string
   ´find´ => string
   ´match´ => string => regex
@@ -20,9 +20,9 @@
 
 (defn run-list 
   "
-  Run the collector item without AJAX
+  Run the collector item list without AJAX
   ´item´
-  => {:url \"...\", :find \"...\", :match \"...\"}
+  => [{:url \"...\", :find \"...\", :match \"...\"}]
   ´url´ => string
   ´find´ => string
   ´match´ => string => regex

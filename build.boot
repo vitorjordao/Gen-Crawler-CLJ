@@ -1,12 +1,13 @@
 (def project 'gen-crawler-clj)
-(def version "1.2.0-ALPHA")
+(def version "1.0.0-BETA")
 
 (set-env! :resource-paths #{"resources" "src"}
           :source-paths   #{"test"}
           :dependencies   '[[org.clojure/clojure "RELEASE"]
-                            [br.com.gencrawler.crawler/gen-crawler "1.2.3-BETA"]
+                            [br.com.gencrawler.crawler/gen-crawler "1.2.7-BETA"]
                             [adzerk/boot-test "RELEASE" :scope "test"]
-                            [midje "1.9.9"]])
+                            [midje "1.9.9"]
+                            [adzerk/bootlaces "0.2.0" :scope "test"]])
 
 (task-options!
  aot {:namespace   #{'simple-collector}}
@@ -28,3 +29,7 @@
     (comp (aot) (pom) (uber) (jar) (target :dir dir))))
 
 (require '[adzerk.boot-test :refer [test]])
+(require '[adzerk.bootlaces :refer :all])
+
+(def +version+ "1.0.0-BETA")
+(bootlaces! +version+)

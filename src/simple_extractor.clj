@@ -4,7 +4,7 @@
   "
   Run the extractor item without AJAX
   ´item´
-  => [{:url \"...\", :paginator \"...\", :link_finded \"...\", :match \"...\"}]
+  => {:url \"...\", :paginator \"...\", :link_finded \"...\", :match \"...\"}
   ´url´ => string
   ´paginator´ => string => regex
   ´link_finded´ => string
