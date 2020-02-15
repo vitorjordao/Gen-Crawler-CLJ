@@ -10,9 +10,10 @@
                  [br.com.gencrawler.crawler/gen-crawler "0.5.0-BETA"]
                  [midje "1.9.9"]
                  [org.apache.maven.wagon/wagon-ssh-external "2.6"]]
-  :plugins [[lein-midje "3.2.1"]]
+  :plugins [[lein-midje "3.2.1"]
+            [lein-clojars "0.9.1"]]
   :profiles {:uberjar {:aot :all}}
-  :repositories [["releases" "https://clojars.org/repo"]]
+  :repositories [["clojars" {:url "https://clojars.org/repo"}]]
   
   :source-paths
   ["src"]

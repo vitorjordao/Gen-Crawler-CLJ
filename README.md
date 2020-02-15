@@ -10,17 +10,13 @@ FIXME
 
 Project based on https://github.com/vitorjordao/Gen-Crawler
 
-Run the project directly:
-
-    $ boot run
-
 Run the project's tests (they'll fail until you edit them):
 
-    $ boot test
+    $ lein test
 
 Build an uberjar from the project:
 
-    $ boot build
+    $ lein install
 
 ## Options
 
