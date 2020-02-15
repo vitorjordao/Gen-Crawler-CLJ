@@ -2,13 +2,13 @@
   (:require [midje.sweet :refer [facts fact =>]]
             [ajax-collector :refer [run-list run-item set-driver]]))
 
-(set-driver {:driver "webdriver.gecko.driver"
-             :url-driver "/home/v/path/geckodriver"})
+(set-driver {:driver "webdriver.chrome.driver"
+             :url-driver "/home/v/path/chromedriver"})
 
 (facts "Run collectors without AJAX"
        (let [crawled {:url "https://www.casa.center/prato-de-sobremesa-com-estampa-de-flores-e-borda-bambu-magnolia/p"
-                      :find "bf-price__best"
-                      :match "class"}]
+                      :find ".bf-price__best"
+                      :match "^.*?().*$"}]
          (fact "Get a prices on the site"
                (->
                 (run-item crawled)
