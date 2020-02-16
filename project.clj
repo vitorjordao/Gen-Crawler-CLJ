@@ -1,4 +1,4 @@
-(def version "0.5.0-BETA")
+(def version "0.5.1-BETA")
 (defproject gen-crawler-clj version
   :description "FIXME"
   :uberjar-name (str "gen-crawler-clj-" version ".jar")

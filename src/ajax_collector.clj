@@ -23,10 +23,15 @@
   [{url :url, find :find, match :match}]
   (let [obj (br.com.gencrawler.crawler.core.AjaxCollector. url find match)]
     (.run obj)
-    (->>
-     (.getItems obj)
-     (vec)
-     (filter #(not-empty %)))))
+    
+     (let [items (->>
+                 (.getItems obj)
+                 (vec)
+                 (filter #(not-empty %)))
+           links (->>
+                 (.getURLs obj)
+                 (hash-set))]
+       {:items items :links links})))
 
 (defn- exec-each-item
   "Run ajax crawler for each item"
@@ -34,25 +39,30 @@
   (.clearItems obj)
   (.set obj find match url)
   (.runBrowser obj)
-  (->>
-   (.getItems obj)
-   (vec)
-   (filter #(not-empty %))))
+  (let [items (->>
+               (.getItems obj)
+               (vec)
+               (filter #(not-empty %)))
+        links (->>
+               (.getURLs obj)
+               (hash-set))]
+    {:items items :links links})
+  )
 
 (defn run-list
   "
   Run the collector item list with AJAX
-  ´item´
+  ´items´
   => [{:url \"...\", :find \"...\", :match \"...\"}]
   ´url´ => string
   ´find´ => string
   ´match´ => string => regex
   "
-  [& args]
+  [& items]
   (let [obj (br.com.gencrawler.crawler.core.AjaxCollector.)]
-    (.openBrowser obj (count args))
+    (.openBrowser obj (count items))
     (let [result (mapcat
                   #(exec-each-item %1 obj)
-                  args)]
+                  items)]
       (.closeBrowser obj)
       result)))

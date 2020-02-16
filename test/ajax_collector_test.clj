@@ -5,13 +5,19 @@
 (set-driver {:driver "webdriver.chrome.driver"
              :url-driver "/home/v/path/chromedriver"})
 
-(facts "Run collectors without AJAX"
+(facts "Run collectors with AJAX"
        (let [crawled {:url "https://www.casa.center/prato-de-sobremesa-com-estampa-de-flores-e-borda-bambu-magnolia/p"
                       :find ".bf-price__best"
-                      :match "^.*?().*$"}]
-         (fact "Get a prices on the site"
+                      :match "^.*?().*$"}
+             {prices :items links :links} (run-item crawled)]
+         (fact "Get the prices on the site"
                (->
-                (run-item crawled)
+                prices
+                (count)
+                (> 0)) => true)
+         (fact "Get the links on the site"
+               (->
+                links
                 (count)
                 (> 0)) => true)
 

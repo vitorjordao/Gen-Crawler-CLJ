@@ -13,20 +13,23 @@
   [{url :url, find :find, match :match}]
   (let [obj (br.com.gencrawler.crawler.core.SimpleCollector. url find match)]
     (.run obj)
-    (->>
-     (.getItems obj)
-     (vec)
-     (filter #(not-empty %)))))
+    (let [items (->>
+                 (.getItems obj)
+                 (vec)
+                 (filter #(not-empty %)))
+          links (->>
+                 (.getItems obj)
+                 (hash-set))]
+      {:items items :links links})))
 
 (defn run-list 
   "
   Run the collector item list without AJAX
-  ´item´
+  ´items´
   => [{:url \"...\", :find \"...\", :match \"...\"}]
   ´url´ => string
   ´find´ => string
   ´match´ => string => regex
   "
-  [& args]
-  (map #(run-item %) args))
-
+  [& items]
+  (map #(run-item %) items))
