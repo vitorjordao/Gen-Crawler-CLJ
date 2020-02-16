@@ -15,11 +15,10 @@
     (.run obj)
     (let [items (->>
                  (.getItems obj)
-                 (vec)
                  (filter #(not-empty %)))
           links (->>
                  (.getItems obj)
-                 (hash-set))]
+                 (vec))]
       {:items items :links links})))
 
 (defn run-list 

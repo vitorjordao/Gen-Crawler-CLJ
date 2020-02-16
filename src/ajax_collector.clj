@@ -25,12 +25,11 @@
     (.run obj)
     
      (let [items (->>
-                 (.getItems obj)
-                 (vec)
-                 (filter #(not-empty %)))
+                  (.getItems obj)
+                  (filter #(not-empty %)))
            links (->>
-                 (.getURLs obj)
-                 (hash-set))]
+                  (.getURLs obj)
+                  (vec))]
        {:items items :links links})))
 
 (defn- exec-each-item
@@ -41,13 +40,11 @@
   (.runBrowser obj)
   (let [items (->>
                (.getItems obj)
-               (vec)
                (filter #(not-empty %)))
         links (->>
                (.getURLs obj)
-               (hash-set))]
-    {:items items :links links})
-  )
+               (vec))]
+    {:items items :links links}))
 
 (defn run-list
   "
