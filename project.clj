@@ -4,8 +4,8 @@
   :uberjar-name (str "gen-crawler-clj-" version ".jar")
   :url "https://github.com/vitorjordao/gen-crawler-clj"
   :min-lein-version "2.0.0"
-  :license     {"Mozilla Public License 2.0 "
-                "https://www.mozilla.org/en-US/MPL/2.0/"}
+  :license     {"MIT"
+                "https://mit-license.org/"}
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [br.com.gencrawler.crawler/gen-crawler "0.5.0-BETA"]
                  [midje "1.9.9"]
