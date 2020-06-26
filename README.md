@@ -45,8 +45,11 @@ MATCHER = Regex applied in the tag = "^.*?().*$"
 #### Set a chromedriver:
 
 ```
-System.setProperty("webdriver.chrome.driver", <PATH>);
+(set-driver {:driver <DRIVER>
+             :url-driver <PATH>})
 ```
+
+DRIVER = A driver name for chromedriver = "webdriver.chrome.driver"
 
 PATH = A path for chromedriver = "./chromedriver"
 
